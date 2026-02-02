@@ -1,0 +1,73 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.card {
+  background: $white;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.04);
+  border-radius: $border-radius-md;
+  padding: $spacing-8 $spacing-6;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+  transition: all $transition-base;
+  
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+  
+  @include mobile {
+    padding: $spacing-6;
+  }
+}
+
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .users & {
+    background: rgba(223, 24, 255, 0.1);
+  }
+  
+  .active & {
+    background: rgba(87, 24, 255, 0.1);
+  }
+  
+  .loans & {
+    background: rgba(245, 95, 68, 0.1);
+  }
+  
+  .savings & {
+    background: rgba(255, 51, 102, 0.1);
+  }
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $primary-grey;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  margin: 0;
+}
+
+.value {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-semibold;
+  color: $primary-navy;
+  margin: 0;
+  
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}

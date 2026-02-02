@@ -1,0 +1,74 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.button {
+  @include button-base;
+  position: relative;
+  
+  &--primary {
+    @include button-primary;
+  }
+  
+  &--secondary {
+    @include button-secondary;
+  }
+  
+  &--text {
+    background: transparent;
+    color: $primary-teal;
+    padding: $spacing-2 $spacing-4;
+    
+    &:hover:not(:disabled) {
+      background: $primary-teal-light;
+    }
+  }
+  
+  &--sm {
+    height: 36px;
+    padding: $spacing-2 $spacing-4;
+    font-size: $font-size-xs;
+  }
+  
+  &--md {
+    height: $button-height;
+  }
+  
+  &--lg {
+    height: 56px;
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-base;
+  }
+  
+  &--full-width {
+    width: 100%;
+  }
+  
+  &--loading {
+    color: transparent;
+    pointer-events: none;
+  }
+}
+
+.loader {
+  @include absolute-center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  
+  .button--primary & {
+    border-top-color: $white;
+  }
+  
+  .button--secondary & {
+    border-top-color: $primary-teal;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

@@ -1,0 +1,79 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.inputWrapper {
+  margin-bottom: $spacing-6;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.label {
+  display: block;
+  margin-bottom: $spacing-2;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $grey-900;
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.input {
+  @include input-base;
+  
+  &--error {
+    border-color: $input-border-color-error;
+    
+    &:focus {
+      border-color: $input-border-color-error;
+      box-shadow: 0 0 0 3px rgba($error, 0.1);
+    }
+  }
+}
+
+.toggleButton {
+  position: absolute;
+  right: $spacing-4;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $primary-teal;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-2;
+  
+  transition: color $transition-base;
+  
+  &:hover {
+    color: darken($primary-teal, 10%);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $primary-teal;
+    outline-offset: 2px;
+    border-radius: $border-radius-sm;
+  }
+}
+
+.error {
+  display: block;
+  margin-top: $spacing-2;
+  font-size: $font-size-xs;
+  color: $error;
+}
+
+.helperText {
+  display: block;
+  margin-top: $spacing-2;
+  font-size: $font-size-xs;
+  color: $grey-600;
+}

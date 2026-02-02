@@ -1,0 +1,107 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.loginPage {
+  display: flex;
+  min-height: 100vh;
+  
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+// ============================================
+// LEFT PANEL - Brand Section
+// ============================================
+
+.leftPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-12 $spacing-10;
+  background: linear-gradient(to bottom, $white 0%, $grey-50 100%);
+  
+  @include mobile {
+    display: none; // Hide on mobile
+  }
+  
+  @include tablet {
+    padding: $spacing-8 $spacing-6;
+  }
+}
+
+.brandContent {
+  max-width: 600px;
+  width: 100%;
+}
+
+.logo {
+  margin-bottom: $spacing-8;
+  
+  img {
+    width: 173.76px;
+    height: 36px;
+  }
+}
+
+.illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: $spacing-16;
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+// ============================================
+// RIGHT PANEL - Form Section
+// ============================================
+
+.rightPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-12 $spacing-10;
+  background: $white;
+  
+  @include mobile {
+    padding: $spacing-10 $spacing-6;
+  }
+  
+  @include tablet {
+    padding: $spacing-10 $spacing-8;
+  }
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 447px;
+  margin-top: $spacing-10;
+}
+
+.welcome {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  color: $primary-navy;
+  margin-bottom: $spacing-3;
+  
+  @include mobile {
+    font-size: $font-size-3xl;
+  }
+}
+
+.subtitle {
+  font-size: $font-size-xl;
+  color: $primary-grey;
+  margin-bottom: $spacing-12;
+  
+  @include mobile {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-8;
+  }
+}

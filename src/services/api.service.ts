@@ -1,30 +1,17 @@
 // Mock API Service - Fetches data from external mock API
 import type { User } from '../types/user.types';
 
-// Mock API endpoint - using a real mock API service
-// In production, this would be replaced with actual API endpoints
-// const MOCK_API_BASE_URL = 'https://run.mocky.io/v3';
-
-// For development, we'll use a fallback to locally generated data
-// In real implementation, you would create this endpoint on mocky.io with 500 records
-// const USERS_ENDPOINT = `${MOCK_API_BASE_URL}/your-mock-endpoint-id`;
+// Mock API endpoint with 500 user records
+const USERS_ENDPOINT = 'https://api.mocki.io/v2/36ogb2w9/userz';
 
 /**
  * Fetch all users from mock API
- * In production: This would call the actual mock API endpoint created on mocky.io
- * For now: Returns generated data to simulate API response
  */
 export const fetchUsersFromAPI = async (): Promise<User[]> => {
   try {
-    // TODO: Replace with actual mocky.io endpoint
-    // const response = await fetch(USERS_ENDPOINT);
-    // if (!response.ok) throw new Error('Failed to fetch users');
-    // return await response.json();
-    
-    // Temporary: Generate data to simulate API response
-    // This should be replaced with actual API call
-    const { generateMockUsers } = await import('./mockData.service');
-    return generateMockUsers(500);
+    const response = await fetch(USERS_ENDPOINT);
+    if (!response.ok) throw new Error('Failed to fetch users');
+    return await response.json();
   } catch (error) {
     console.error('Error fetching users from API:', error);
     throw error;
@@ -36,12 +23,6 @@ export const fetchUsersFromAPI = async (): Promise<User[]> => {
  */
 export const fetchUserById = async (id: string): Promise<User | null> => {
   try {
-    // TODO: Replace with actual API endpoint
-    // const response = await fetch(`${USERS_ENDPOINT}/${id}`);
-    // if (!response.ok) throw new Error('User not found');
-    // return await response.json();
-    
-    // Temporary: Fetch from all users
     const users = await fetchUsersFromAPI();
     return users.find(u => u.id === id) || null;
   } catch (error) {
@@ -77,7 +58,7 @@ export const fetchUsersPaginated = async (
  */
 export const calculateStats = (users: User[]) => {
   const totalUsers = users.length;
-  const activeUsers = users.filter(u => u.status === 'active').length;
+  const activeUsers = users.filter(u => u.status.toLowerCase() === 'active').length;
   const usersWithLoans = Math.floor(totalUsers * 0.45);
   const usersWithSavings = Math.floor(totalUsers * 0.78);
 

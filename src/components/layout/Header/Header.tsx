@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           </button>
 
           <div className={styles.userMenu}>
-            <img src="/icons/avatar.svg" alt="User" className={styles.avatar} />
+            <img src="/icons/acct_avatar.svg" alt="User" className={styles.avatar} />
             <span className={styles.userName}>Adedeji</span>
             <svg width="8" height="5" viewBox="0 0 8 5" fill="none" className={styles.dropdown}>
               <path d="M4 5L0.535898 0.5L7.4641 0.5L4 5Z" fill="#213F7D"/>

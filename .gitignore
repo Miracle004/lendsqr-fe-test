@@ -36,3 +36,6 @@ FRONTEND_ARCHITECTURE.md
 DOCUMENTATION_INDEX.md
 DEVELOPMENT_STATUS.md
 create-git-history.ps1
+create-commits.ps1
+generate-mock-data.js
+users-500.json

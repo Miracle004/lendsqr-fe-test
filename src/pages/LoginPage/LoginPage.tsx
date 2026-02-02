@@ -9,12 +9,12 @@ const LoginPage: React.FC = () => {
       <div className={styles.leftPanel}>
         <div className={styles.brandContent}>
           <div className={styles.logo}>
-            <img src="public/icons/lendsqr_logo.svg" alt="" />
+            <img src="/icons/lendsqr_logo.svg" alt="Lendsqr Logo" />
           </div>
           
           <div className={styles.illustration}>
             <img 
-              src="public/icons/pablo-sign-in 1.svg" 
+              src="/icons/pablo-sign-in 1.svg" 
               alt="Lendsqr illustration" 
             />
           </div>

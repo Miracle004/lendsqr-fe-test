@@ -1,0 +1,30 @@
+@use '../../../styles/abstracts' as *;
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  
+  &.active {
+    background: rgba(57, 205, 98, 0.06);
+    color: #39CD62;
+  }
+  
+  &.inactive {
+    background: rgba(84, 95, 125, 0.06);
+    color: #545F7D;
+  }
+  
+  &.pending {
+    background: rgba(233, 178, 0, 0.06);
+    color: #E9B200;
+  }
+  
+  &.blacklisted {
+    background: rgba(228, 3, 59, 0.06);
+    color: #E4033B;
+  }
+}

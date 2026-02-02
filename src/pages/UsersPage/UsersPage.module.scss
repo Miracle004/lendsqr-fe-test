@@ -1,0 +1,48 @@
+@use '../../styles/abstracts' as *;
+
+.usersPage {
+  padding: 24px 30px;
+  max-width: 100%;
+
+  @media (max-width: 1440px) {
+    padding: 20px 24px;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 20px;
+  }
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  color: $text-primary;
+  margin-bottom: 20px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 240px);
+  gap: 16px;
+  margin-bottom: 32px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 240px);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tableContainer {
+  background: $white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.error {
+  padding: 40px;
+  text-align: center;
+  color: $error-red;
+}

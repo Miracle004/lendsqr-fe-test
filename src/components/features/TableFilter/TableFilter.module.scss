@@ -1,0 +1,102 @@
+@use '../../../styles/abstracts' as *;
+
+.filterOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 1000;
+  padding-top: 200px;
+}
+
+.filterPanel {
+  background: $white;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 30px;
+  width: 270px;
+  max-width: 90vw;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: $text-secondary;
+    margin-bottom: 8px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px solid rgba(84, 95, 125, 0.2);
+    border-radius: 8px;
+    font-size: 14px;
+    color: $text-secondary;
+    background: $white;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-teal;
+    }
+
+    &::placeholder {
+      color: rgba(84, 95, 125, 0.5);
+    }
+  }
+
+  select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.5 5L7 9.5L2.5 5' stroke='%23545F7D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+
+  button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+}
+
+.resetBtn {
+  background: transparent;
+  border: 1px solid rgba(84, 95, 125, 0.2) !important;
+  color: $text-secondary;
+
+  &:hover {
+    background: rgba(84, 95, 125, 0.05);
+  }
+}
+
+.filterBtn {
+  background: $primary-teal;
+  color: $white;
+
+  &:hover {
+    background: darken($primary-teal, 8%);
+  }
+}

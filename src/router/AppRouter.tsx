@@ -1,7 +1,7 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import DashboardLayout from '../components/layout/DashboardLayout';
-import DashboardPage from '../pages/DashboardPage';
+import UsersPage from '../pages/UsersPage';
 
 // Define routes
 const router = createBrowserRouter([
@@ -15,13 +15,12 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <DashboardPage />,
+        element: <Navigate to="/dashboard/users" replace />,
       },
-      // Additional routes will be added as pages are built
-      // {
-      //   path: 'users',
-      //   element: <UsersPage />,
-      // },
+      {
+        path: 'users',
+        element: <UsersPage />,
+      },
       // {
       //   path: 'users/:id',
       //   element: <UserDetailsPage />,

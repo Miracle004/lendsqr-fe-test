@@ -9,9 +9,13 @@ const USERS_ENDPOINT = 'https://api.mocki.io/v2/36ogb2w9/userz';
  */
 export const fetchUsersFromAPI = async (): Promise<User[]> => {
   try {
+    console.log('Fetching users from:', USERS_ENDPOINT);
     const response = await fetch(USERS_ENDPOINT);
+    console.log('Response status:', response.status, response.statusText);
     if (!response.ok) throw new Error('Failed to fetch users');
-    return await response.json();
+    const data = await response.json();
+    console.log('Fetched users count:', data.length);
+    return data;
   } catch (error) {
     console.error('Error fetching users from API:', error);
     throw error;

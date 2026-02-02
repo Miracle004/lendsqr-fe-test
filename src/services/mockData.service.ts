@@ -88,11 +88,11 @@ export const generateMockUsers = (count: number = 500): User[] => {
         children: Math.random() > 0.5 ? 'None' : String(Math.floor(Math.random() * 4)),
         typeOfResidence: ['Parent\'s Apartment', 'Rented Apartment', 'Owned Apartment'][Math.floor(Math.random() * 3)] as any,
       },
-      education: {
-        level: ['B.Sc', 'M.Sc', 'Ph.D', 'HND', 'OND'][Math.floor(Math.random() * 5)] as any,
+      educationAndEmployment: {
+        levelOfEducation: ['B.Sc', 'M.Sc', 'Ph.D', 'HND', 'OND'][Math.floor(Math.random() * 5)] as any,
         employmentStatus: ['Employed', 'Unemployed', 'Self-employed'][Math.floor(Math.random() * 3)] as any,
-        sector: ['FinTech', 'Technology', 'Healthcare', 'Education', 'Agriculture', 'Entertainment'][Math.floor(Math.random() * 6)],
-        duration: `${Math.floor(Math.random() * 10) + 1} years`,
+        sectorOfEmployment: ['FinTech', 'Technology', 'Healthcare', 'Education', 'Agriculture', 'Entertainment'][Math.floor(Math.random() * 6)],
+        durationOfEmployment: `${Math.floor(Math.random() * 10) + 1} years`,
         officeEmail: `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${organization.toLowerCase().replace(/\s/g, '')}.com`,
         monthlyIncome: [
           '₦100,000 - ₦200,000',
@@ -115,6 +115,11 @@ export const generateMockUsers = (count: number = 500): User[] => {
           lastNames[Math.floor(Math.random() * lastNames.length)]
         ),
         relationship: ['Brother', 'Sister', 'Friend', 'Parent', 'Colleague'][Math.floor(Math.random() * 5)],
+      },
+      bankDetails: {
+        accountNumber: String(1000000000 + Math.floor(Math.random() * 9000000000)),
+        accountName: `${firstName} ${lastName}`,
+        bankName: ['GTBank', 'Access Bank', 'First Bank', 'UBA', 'Zenith Bank', 'Fidelity Bank'][Math.floor(Math.random() * 6)],
       },
     };
 

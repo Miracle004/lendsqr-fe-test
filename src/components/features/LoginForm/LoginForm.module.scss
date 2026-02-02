@@ -1,0 +1,32 @@
+@use '../../../styles/abstracts/variables' as *;
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.forgotPassword {
+  display: block;
+  margin-top: $spacing-2;
+  margin-bottom: $spacing-10;
+  
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $primary-teal;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  text-decoration: none;
+  
+  transition: color $transition-base;
+  
+  &:hover {
+    color: darken($primary-teal, 10%);
+    text-decoration: underline;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $primary-teal;
+    outline-offset: 2px;
+    border-radius: $border-radius-sm;
+  }
+}

@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+// Main SCSS Entry Point
+// Following 7-1 Architecture Pattern
+
+// ============================================
+// 1. ABSTRACTS
+// ============================================
+@forward 'abstracts/variables';
+@forward 'abstracts/functions';
+@forward 'abstracts/mixins';
+
+// ============================================
+// 2. BASE
+// ============================================
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/global';
+
+// ============================================
+// 3. COMPONENTS
+// Component-specific styles will be imported via CSS Modules
+// This main file provides global styles only
+// ============================================
+
+// ============================================
+// 4. LAYOUT
+// Layout-specific styles will be imported via CSS Modules
+// ============================================
+
+// ============================================
+// Note: Individual component styles are handled
+// through CSS Modules (*.module.scss)
+// This keeps styles scoped and prevents conflicts
+// ============================================

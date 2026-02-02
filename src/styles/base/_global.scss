@@ -1,0 +1,210 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================
+// GLOBAL STYLES
+// ============================================
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Selection color
+::selection {
+  background: $primary-teal-medium;
+  color: $white;
+}
+
+// Focus visible styles
+:focus-visible {
+  outline: 2px solid $primary-teal;
+  outline-offset: 2px;
+}
+
+// Disable focus outline for mouse users
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// ============================================
+// UTILITY CLASSES
+// ============================================
+
+// Text utilities
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+// Font weight utilities
+.font-regular {
+  font-weight: $font-weight-regular;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+  font-weight: $font-weight-bold;
+}
+
+// Display utilities
+.d-none {
+  display: none !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-inline-flex {
+  display: inline-flex !important;
+}
+
+// Flex utilities
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+// Gap utilities
+.gap-2 {
+  gap: $spacing-2;
+}
+
+.gap-4 {
+  gap: $spacing-4;
+}
+
+.gap-6 {
+  gap: $spacing-6;
+}
+
+// Width utilities
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+// Container
+.container {
+  @include container;
+}
+
+// Spacing utilities (margin & padding)
+@for $i from 0 through 24 {
+  .m-#{$i} {
+    margin: #{$i * 0.25}rem;
+  }
+  
+  .mt-#{$i} {
+    margin-top: #{$i * 0.25}rem;
+  }
+  
+  .mb-#{$i} {
+    margin-bottom: #{$i * 0.25}rem;
+  }
+  
+  .ml-#{$i} {
+    margin-left: #{$i * 0.25}rem;
+  }
+  
+  .mr-#{$i} {
+    margin-right: #{$i * 0.25}rem;
+  }
+  
+  .p-#{$i} {
+    padding: #{$i * 0.25}rem;
+  }
+  
+  .pt-#{$i} {
+    padding-top: #{$i * 0.25}rem;
+  }
+  
+  .pb-#{$i} {
+    padding-bottom: #{$i * 0.25}rem;
+  }
+  
+  .pl-#{$i} {
+    padding-left: #{$i * 0.25}rem;
+  }
+  
+  .pr-#{$i} {
+    padding-right: #{$i * 0.25}rem;
+  }
+}
+
+// Screen reader only
+.sr-only {
+  @include visually-hidden;
+}
+
+// Responsive utilities
+@include mobile {
+  .mobile-hidden {
+    display: none !important;
+  }
+}
+
+@include desktop {
+  .desktop-hidden {
+    display: none !important;
+  }
+}

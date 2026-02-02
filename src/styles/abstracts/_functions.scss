@@ -1,0 +1,47 @@
+// SCSS Functions
+@use 'sass:math';
+
+// ============================================
+// SPACING FUNCTIONS
+// ============================================
+
+// Convert px to rem
+@function rem($pixels, $context: 16) {
+  @if (math.is-unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (math.is-unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return math.div($pixels, $context) * 1rem;
+}
+
+// Convert px to em
+@function em($pixels, $context: 16) {
+  @if (math.is-unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (math.is-unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return math.div($pixels, $context) * 1em;
+}
+
+// ============================================
+// COLOR FUNCTIONS
+// ============================================
+
+// Get color with opacity
+@function alpha($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+// Lighten color
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+// Darken color
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

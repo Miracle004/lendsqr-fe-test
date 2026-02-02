@@ -30,6 +30,20 @@ const UsersPage: React.FC = () => {
     setCurrentPage(1);
   };
 
+  const handleFilterChange = (filters: any) => {
+    const filtered = users.filter(user => {
+      if (filters.organization && user.organization !== filters.organization) return false;
+      if (filters.username && !user.username.toLowerCase().includes(filters.username.toLowerCase())) return false;
+      if (filters.email && !user.email.toLowerCase().includes(filters.email.toLowerCase())) return false;
+      if (filters.date && !user.dateJoined.startsWith(filters.date)) return false;
+      if (filters.phoneNumber && !user.phoneNumber.includes(filters.phoneNumber)) return false;
+      if (filters.status && user.status.toLowerCase() !== filters.status.toLowerCase()) return false;
+      return true;
+    });
+    setFilteredUsers(filtered);
+    setCurrentPage(1);
+  };
+
   if (error) {
     return (
       <div className={styles.error}>

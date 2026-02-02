@@ -11,9 +11,10 @@ export interface User {
   
   // Extended fields for user details page
   personalInfo: PersonalInfo;
-  education: Education;
+  educationAndEmployment: EducationAndEmployment;
   socials: Socials;
   guarantor: Guarantor;
+  bankDetails: BankDetails;
 }
 
 export type UserStatus = 'active' | 'inactive' | 'pending' | 'blacklisted';
@@ -29,14 +30,20 @@ export interface PersonalInfo {
   typeOfResidence: string;
 }
 
-export interface Education {
-  level: string;
+export interface EducationAndEmployment {
+  levelOfEducation: string;
   employmentStatus: string;
-  sector: string;
-  duration: string;
+  sectorOfEmployment: string;
+  durationOfEmployment: string;
   officeEmail: string;
   monthlyIncome: string;
   loanRepayment: string;
+}
+
+export interface BankDetails {
+  accountNumber: string;
+  accountName: string;
+  bankName: string;
 }
 
 export interface Socials {

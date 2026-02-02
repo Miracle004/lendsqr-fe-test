@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import type { User } from '../../../types/user.types';
 import StatusBadge from '../../common/StatusBadge';
-import TableFilter, { FilterValues } from '../TableFilter';
+import TableFilter, { type FilterValues } from '../TableFilter';
 import styles from './UsersTable.module.scss';
 
 interface UsersTableProps {
@@ -11,6 +12,7 @@ interface UsersTableProps {
 }
 
 const UsersTable: React.FC<UsersTableProps> = ({ users, isLoading, onFilterChange }) => {
+  const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [showFilter, setShowFilter] = useState(false);
 
@@ -48,13 +50,13 @@ const UsersTable: React.FC<UsersTableProps> = ({ users, isLoading, onFilterChang
 
   return (
     <div className={styles.tableWrapper}>
-      <table className={styles.table}> onClick={() => setShowFilter(true)}
+      <table className={styles.table}>
         <thead>
           <tr>
             <th>
               <div className={styles.headerCell}>
                 <span>Organization</span>
-                <button className={styles.filterBtn} type="button">
+                <button className={styles.filterBtn} type="button" onClick={() => setShowFilter(true)}>
                   <img src="/icons/filter-results-button.svg" alt="Filter" />
                 </button>
               </div>
@@ -104,7 +106,7 @@ const UsersTable: React.FC<UsersTableProps> = ({ users, isLoading, onFilterChang
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr key={user.id}>
+            <tr key={user.id} onClick={() => navigate(`/dashboard/users/${user.id}`)} style={{ cursor: 'pointer' }}>
               <td>{user.organization}</td>
               <td>{user.username}</td>
               <td>{user.email}</td>
@@ -117,7 +119,10 @@ const UsersTable: React.FC<UsersTableProps> = ({ users, isLoading, onFilterChang
                 <div className={styles.actionCell}>
                   <button
                     className={styles.menuBtn}
-                    onClick={() => toggleMenu(user.id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleMenu(user.id);
+                    }}
                     type="button"
                   >
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -126,10 +131,9 @@ const UsersTable: React.FC<UsersTableProps> = ({ users, isLoading, onFilterChang
                       <path d="M9.99999 17.2222C10.9205 17.2222 11.6667 16.4761 11.6667 15.5555C11.6667 14.635 10.9205 13.8889 9.99999 13.8889C9.07946 13.8889 8.33332 14.635 8.33332 15.5555C8.33332 16.4761 9.07946 17.2222 9.99999 17.2222Z" fill="#545F7D"/>
                     </svg>
                   </button>
-                  
                   {activeMenu === user.id && (
-                    <div className={styles.actionsMenu}>
-                      <button type="button">
+                    <div className={styles.actionsMenu} onClick={(e) => e.stopPropagation()}>
+                      <button type="button" onClick={() => navigate(`/dashboard/users/${user.id}`)}>
                         <img src="/icons/eye(visual).svg" alt="" />
                         View Details
                       </button>

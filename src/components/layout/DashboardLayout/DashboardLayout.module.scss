@@ -22,12 +22,8 @@
   min-height: calc(100vh - #{$header-height});
   overflow-x: hidden;
   
-  @include mobile {
+  @media (max-width: 1024px) {
     margin-left: 0;
-    padding: 0;
-  }
-  
-  @include tablet {
     padding: 0;
   }
 }

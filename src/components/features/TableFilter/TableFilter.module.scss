@@ -6,22 +6,47 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  z-index: 1000;
-  padding-top: 200px;
+  background: transparent;
+  z-index: 999;
 }
 
 .filterPanel {
+  position: absolute;
+  top: 280px;
+  left: 50%;
+  transform: translateX(-50%);
   background: $white;
   border: 1px solid rgba(84, 95, 125, 0.14);
-  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   padding: 30px;
   width: 270px;
   max-width: 90vw;
+  z-index: 1000;
+
+  @media (max-width: 1440px) {
+    top: 260px;
+  }
+
+  @media (max-width: 1024px) {
+    top: 240px;
+  }
+
+  @media (max-width: 768px) {
+    top: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
+    width: calc(100% - 40px);
+    left: 20px;
+    right: 20px;
+    transform: none;
+    top: 200px;
+  }
 }
 
 .formGroup {

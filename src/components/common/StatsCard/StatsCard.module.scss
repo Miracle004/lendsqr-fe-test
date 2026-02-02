@@ -19,10 +19,16 @@
     transform: translateY(-2px);
   }
   
-  @include mobile {
+  @media (max-width: 768px) {
     width: 100%;
     height: auto;
-    padding: 20px;
+    min-height: 140px;
+    padding: 18px 20px 20px 24px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px 18px 18px 20px;
+    min-height: 120px;
   }
 }
 

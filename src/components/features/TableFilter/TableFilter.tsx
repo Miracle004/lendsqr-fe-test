@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import styles from './TableFilter.module.scss';
 
-interface FilterOption {
-  label: string;
-  value: string;
-}
-
 interface TableFilterProps {
   onFilter: (filters: FilterValues) => void;
   onClose: () => void;

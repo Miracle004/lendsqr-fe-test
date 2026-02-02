@@ -12,6 +12,13 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   return (
     <header className={styles.header}>
       <div className={styles.headerContent}>
+        {/* Hamburger Menu */}
+        <button className={styles.hamburger} onClick={onMenuClick} type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M3 12H21M3 6H21M3 18H21" stroke="#213F7D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+
         {/* Logo */}
         <Link to="/dashboard" className={styles.logo}>
           <img src="/icons/lendsqr_logo.svg" alt="Lendsqr" />
@@ -48,18 +55,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
               <path d="M4 5L0.535898 0.5L7.4641 0.5L4 5Z" fill="#213F7D"/>
             </svg>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button 
-            className={styles.menuButton}
-            onClick={onMenuClick}
-            type="button"
-            aria-label="Toggle menu"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-          </button>
         </div>
       </div>
     </header>
